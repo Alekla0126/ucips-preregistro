@@ -53,7 +53,7 @@ $p = $PROGRAMS[$id];
         </p>
 
         <div class="hero-buttons">
-            <a href="<?= h($p['google_form']) ?>" target="_blank" class="btn-primary">
+            <a href="<?= siteUrl('preregistro.php?id=' . $p['id']) ?>" class="btn-primary">
                 HACER PRE-REGISTRO
             </a>
             <a href="#plan" class="btn-secondary">

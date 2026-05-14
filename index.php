@@ -70,9 +70,9 @@ require_once __DIR__ . '/includes/auth.php';
         <p><?= h($p['descripcion']) ?></p>
 
         <div class="prog-meta">
-            <span>⏱ <?= h($p['duracion']) ?></span>
+            <span>⏱ <?= h($p['duracion']) ?> Cuatrimestres</span>
             <span>📚 <?= h($p['modalidad']) ?></span>
-            <span>💰 <?= h($p['costo_inscripcion']) ?> Inscripción</span>
+            <span>💰 $500 Inscripción</span>
         </div>
 
         <div style="
@@ -87,7 +87,7 @@ require_once __DIR__ . '/includes/auth.php';
         </div>
 
         <div class="card-buttons">
-            <a href="<?= h($p['google_form']) ?>" target="_blank" class="btn-card-primary">
+            <a href="<?= siteUrl('preregistro.php?id=' . $p['id']) ?>" class="btn-card-primary">
                 HACER PRE-REGISTRO
             </a>
             <a href="<?= siteUrl('programa.php?id=' . $p['id']) ?>" class="btn-card-secondary">

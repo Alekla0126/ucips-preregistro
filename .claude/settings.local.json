@@ -14,7 +14,10 @@
       "Bash(git remote *)",
       "Bash(git push *)",
       "Bash(curl -s \"https://educacionadistanciaucips.site/UCIPS/preregistro/requisitos/seguridadyproteccion.html\")",
-      "Bash(perl -i -pe 's|assets/css/style\\\\.css|assets/css/admin.css|g' /Users/a1111/Desktop/Preregistro/admin/login.php /Users/a1111/Desktop/Preregistro/admin/index.php /Users/a1111/Desktop/Preregistro/admin/ver.php)"
+      "Bash(perl -i -pe 's|assets/css/style\\\\.css|assets/css/admin.css|g' /Users/a1111/Desktop/Preregistro/admin/login.php /Users/a1111/Desktop/Preregistro/admin/index.php /Users/a1111/Desktop/Preregistro/admin/ver.php)",
+      "Bash(curl -s \"https://educacionadistanciaucips.site/UCIPS/preregistro/\")",
+      "Bash(curl -s \"https://educacionadistanciaucips.site/\")",
+      "Bash(curl -s \"https://educacionadistanciaucips.site/UCIPS/preregistro/requisitos/derecho.html\")"
     ]
   }
 }
