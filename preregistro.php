@@ -247,7 +247,7 @@ $err = $_GET['err'] ?? '';
 
     <form class="glass-form" method="POST" action="<?= siteUrl('procesar.php') ?>">
         <input type="hidden" name="programa" value="<?= h($id) ?>">
-        <input type="hidden" name="csrf" value="<?= h(bin2hex(random_bytes(8))) ?>">
+        <input type="hidden" name="csrf" value="<?= h(csrfToken()) ?>">
 
         <!-- Datos personales -->
         <div class="form-block">

@@ -12,9 +12,8 @@ define('SITE_HOURS',     'Lunes a Viernes · 09:00 – 18:00 hrs');
 define('SITE_COPYRIGHT', '© 2026 UCIPS');
 define('SITE_LOGO',      'https://yacdergaming.com/preregistro/imagenes/logo.png');
 
-// Admin (usuario: admin / contraseña: ucips2026)
 define('ADMIN_USER',      'admin');
-define('ADMIN_PASS_HASH', '$2y$12$aVTtiYPH.ouk9Zgi29OdEOH21Hmam.XHrtslfg23AH9Ce7qB.SaxG');
+define('ADMIN_PASS_HASH', '$2y$12$OdeSr2Qcmj1UwkHfTwS1tuhL7T0BR/PT7.MErKfRTEBQ95.wVEEsW');
 
 // ══════════════════════════════════════════════════════════════
 //  PROGRAMAS

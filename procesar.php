@@ -9,6 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// CSRF
+verifyCsrf();
+
 $programa = preg_replace('/[^a-z0-9]/', '', strtolower($_POST['programa'] ?? ''));
 
 if (!isset($PROGRAMS[$programa])) {
@@ -37,6 +40,28 @@ if (!filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// Validar enums
+$allowed_genero  = ['Masculino', 'Femenino', 'Prefiero no decir'];
+$allowed_estado  = ['Puebla','Tlaxcala','Hidalgo','Morelos','Veracruz','Oaxaca','CDMX','Otro'];
+$allowed_grado   = ['Preparatoria','TSU','Licenciatura','Maestría','Doctorado'];
+$allowed_enteraste = ['Redes sociales','Compañero de trabajo','Jefe superior','Página web UCIPS','Volante / Cartel','Otro',''];
+
+if (!in_array($_POST['genero'], $allowed_genero, true)) {
+    header("Location: $redir&err=" . urlencode('Género no válido.'));
+    exit;
+}
+if (!in_array($_POST['estado'], $allowed_estado, true)) {
+    header("Location: $redir&err=" . urlencode('Estado no válido.'));
+    exit;
+}
+if (!in_array($_POST['grado_estudios'], $allowed_grado, true)) {
+    header("Location: $redir&err=" . urlencode('Grado de estudios no válido.'));
+    exit;
+}
+if (!in_array($_POST['como_enteraste'] ?? '', $allowed_enteraste, true)) {
+    $_POST['como_enteraste'] = '';
+}
+
 // Sanitizar
 $clean = [];
 foreach (['nombre','apellido_paterno','apellido_materno','curp','fecha_nacimiento','genero',
@@ -45,10 +70,13 @@ foreach (['nombre','apellido_paterno','apellido_materno','curp','fecha_nacimient
     $clean[$f] = trim(strip_tags($_POST[$f] ?? ''));
 }
 
-$clean['curp']         = strtoupper($clean['curp']);
-$clean['ip_address']   = $_SERVER['HTTP_CF_CONNECTING_IP']
-                      ?? $_SERVER['HTTP_X_FORWARDED_FOR']
-                      ?? $_SERVER['REMOTE_ADDR'];
+$clean['curp'] = strtoupper($clean['curp']);
+// Limitar longitud de comentarios
+$clean['comentarios'] = mb_substr($clean['comentarios'], 0, 600);
+
+$clean['ip_address'] = $_SERVER['HTTP_CF_CONNECTING_IP']
+                    ?? $_SERVER['HTTP_X_FORWARDED_FOR']
+                    ?? $_SERVER['REMOTE_ADDR'];
 
 try {
     $db = getDB();
@@ -61,13 +89,16 @@ try {
             (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pendiente')
     ")->execute([
         $programa,
-        $clean['nombre'],        $clean['apellido_paterno'], $clean['apellido_materno'],
-        $clean['email'],         $clean['telefono'],
-        $clean['curp'],          $clean['fecha_nacimiento'], $clean['genero'],
-        $clean['municipio'],     $clean['estado'],
-        $clean['grado_estudios'],$clean['ocupacion'],        $clean['institucion'],
-        $clean['como_enteraste'],$clean['comentarios'],      $clean['ip_address'],
+        $clean['nombre'],         $clean['apellido_paterno'], $clean['apellido_materno'],
+        $clean['email'],          $clean['telefono'],
+        $clean['curp'],           $clean['fecha_nacimiento'], $clean['genero'],
+        $clean['municipio'],      $clean['estado'],
+        $clean['grado_estudios'], $clean['ocupacion'],        $clean['institucion'],
+        $clean['como_enteraste'], $clean['comentarios'],      $clean['ip_address'],
     ]);
+
+    // Regenerar token CSRF tras uso exitoso
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
     header("Location: $redir&ok=1");
     exit;

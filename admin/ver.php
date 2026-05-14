@@ -16,6 +16,7 @@ if (!$r) { header('Location: index.php'); exit; }
 
 // Cambiar status
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['status'])) {
+    verifyCsrf();
     $allowed = ['pendiente', 'revisado', 'rechazado'];
     $ns = in_array($_POST['status'], $allowed) ? $_POST['status'] : 'pendiente';
     $db->prepare("UPDATE preregistros SET status = ? WHERE id = ?")->execute([$ns, $id]);
@@ -61,6 +62,7 @@ $programa = $PROGRAMS[$r['programa']] ?? ['nombre' => $r['programa']];
             </div>
             <div style="display:flex; gap:10px; align-items:center">
                 <form method="POST" style="display:flex; gap:8px; align-items:center">
+                    <input type="hidden" name="csrf" value="<?= h(csrfToken()) ?>">
                     <select name="status" style="padding:7px 11px; border:1.5px solid var(--border); border-radius:6px; font-size:13px; background:white;">
                         <option value="pendiente"  <?= $r['status']==='pendiente'?'selected':'' ?>>Pendiente</option>
                         <option value="revisado"   <?= $r['status']==='revisado'?'selected':'' ?>>Revisado</option>
