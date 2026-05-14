@@ -70,7 +70,7 @@ require_once __DIR__ . '/includes/auth.php';
         <p><?= h($p['descripcion']) ?></p>
 
         <div class="prog-meta">
-            <span>⏱ <?= h($p['duracion']) ?> Cuatrimestres</span>
+            <span>⏱ <?= h($p['duracion']) ?> <?= in_array($p['tipo'], ['Maestría','Maestría Premium','Doctorado']) ? 'Semestres' : 'Cuatrimestres' ?></span>
             <span>📚 <?= h($p['modalidad']) ?></span>
             <span>💰 $500 Inscripción</span>
         </div>

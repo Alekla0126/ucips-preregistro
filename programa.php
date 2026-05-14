@@ -71,7 +71,7 @@ $p = $PROGRAMS[$id];
         <h2>Duración</h2>
         <div class="valor-destacado"><?= count($p['plan_estudios']) ?></div>
         <p style="margin-top:10px;color:#d8d8d8;letter-spacing:2px;text-transform:uppercase;">
-            Cuatrimestres
+            <?= in_array($p['tipo'], ['Maestría','Maestría Premium','Doctorado']) ? 'Semestres' : 'Cuatrimestres' ?>
         </p>
     </div>
 
@@ -123,11 +123,7 @@ $p = $PROGRAMS[$id];
 
 <div class="grid-cuatris">
 <?php
-$nums = ['1°','2°','3°','4°','5°','6°','7°','8°','9°'];
-$i = 0;
-foreach ($p['plan_estudios'] as $cuatri => $materias):
-    $label = ($nums[$i] ?? ($i+1).'°') . ' Cuatrimestre';
-    $i++;
+foreach ($p['plan_estudios'] as $label => $materias):
 ?>
     <div class="cuatri-card">
         <h3><?= h($label) ?></h3>
