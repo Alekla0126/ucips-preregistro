@@ -1,0 +1,21 @@
+# Base de datos SQLite (datos reales – NO versionar)
+data/
+*.db
+*.sqlite
+
+# Logs
+*.log
+
+# Entorno local
+.env
+.env.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
