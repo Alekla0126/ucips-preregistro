@@ -45,7 +45,7 @@ global $PROGRAMS;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard · Admin UCIPS</title>
-    <link rel="stylesheet" href="<?= siteUrl('assets/css/style.css') ?>">
+    <link rel="stylesheet" href="<?= siteUrl('assets/css/admin.css') ?>">
     <style>
         body { background: var(--light); }
         .pagination { display:flex; gap:6px; justify-content:flex-end; padding:14px 20px; }

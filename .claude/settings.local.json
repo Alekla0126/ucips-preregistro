@@ -4,7 +4,17 @@
       "WebFetch(domain:educacionadistanciaucips.site)",
       "Bash(php *)",
       "Bash(git init *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git branch *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh auth *)",
+      "Bash(ssh -o ConnectTimeout=8 -o StrictHostKeyChecking=no root@161.97.92.90 \"php -v 2>/dev/null | head -1; echo '---'; apache2 -v 2>/dev/null | head -1 || httpd -v 2>/dev/null | head -1 || nginx -v 2>&1 | head -1; echo '---'; ls /var/www/html/ 2>/dev/null || ls /var/www/ 2>/dev/null\")",
+      "Bash(sshpass *)",
+      "Bash(gh repo *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(curl -s \"https://educacionadistanciaucips.site/UCIPS/preregistro/requisitos/seguridadyproteccion.html\")",
+      "Bash(perl -i -pe 's|assets/css/style\\\\.css|assets/css/admin.css|g' /Users/a1111/Desktop/Preregistro/admin/login.php /Users/a1111/Desktop/Preregistro/admin/index.php /Users/a1111/Desktop/Preregistro/admin/ver.php)"
     ]
   }
 }
