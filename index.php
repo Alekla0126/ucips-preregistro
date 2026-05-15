@@ -116,6 +116,9 @@ $doctorados    = array_filter($PROGRAMS, fn($p) => $p['categoria'] === 'doctorad
     <?php $i = 1; foreach ($licenciaturas as $p): ?>
         <div class="program-card program-card--lic" data-reveal data-delay="<?= ($i - 1) * 100 ?>">
             <div class="program-card-number"><?= str_pad($i, 2, '0', STR_PAD_LEFT) ?></div>
+            <?php if (!empty($p['imagen'])): ?>
+            <div class="card-img-wrap"><img src="<?= h($p['imagen']) ?>" alt="<?= h($p['nombre']) ?>" loading="lazy"></div>
+            <?php endif; ?>
             <div class="prog-icon"><?= $p['icono'] ?></div>
             <div class="prog-badge prog-badge--lic"><?= h($p['tipo']) ?></div>
             <h2><?= h($p['nombre']) ?></h2>
@@ -160,6 +163,9 @@ $doctorados    = array_filter($PROGRAMS, fn($p) => $p['categoria'] === 'doctorad
     <?php $i = 1; foreach ($maestrias as $p): ?>
         <div class="program-card program-card--mae" data-reveal data-delay="<?= min(($i - 1) * 80, 320) ?>">
             <div class="program-card-number"><?= str_pad($i, 2, '0', STR_PAD_LEFT) ?></div>
+            <?php if (!empty($p['imagen'])): ?>
+            <div class="card-img-wrap"><img src="<?= h($p['imagen']) ?>" alt="<?= h($p['nombre']) ?>" loading="lazy"></div>
+            <?php endif; ?>
             <div class="prog-icon"><?= $p['icono'] ?></div>
             <div class="prog-badge prog-badge--mae"><?= h($p['tipo']) ?></div>
             <h2><?= h($p['nombre']) ?></h2>
@@ -203,6 +209,9 @@ $doctorados    = array_filter($PROGRAMS, fn($p) => $p['categoria'] === 'doctorad
     <?php foreach ($doctorados as $p): ?>
     <div class="program-card--doc-featured" data-reveal>
         <div class="doc-featured-left">
+            <?php if (!empty($p['imagen'])): ?>
+            <div class="card-img-wrap card-img-wrap--doc"><img src="<?= h($p['imagen']) ?>" alt="<?= h($p['nombre']) ?>" loading="lazy"></div>
+            <?php endif; ?>
             <div class="prog-badge prog-badge--doc"><?= h($p['tipo']) ?></div>
             <div class="doc-icon"><?= $p['icono'] ?></div>
             <h2><?= h($p['nombre']) ?></h2>

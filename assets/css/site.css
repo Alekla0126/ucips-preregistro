@@ -1848,6 +1848,7 @@ footer:not(:has(.footer-inner)) a {
 .program-card--lic > *:first-child { padding-top: 36px; }
 .program-card--lic > *:last-child  { padding-bottom: 36px; }
 .program-card--lic .prog-icon      { padding-top: 36px; padding-bottom: 0; }
+.program-card--lic > .card-img-wrap { padding: 0 !important; }
 
 .program-card--lic:hover {
     transform: translateY(-8px);
@@ -1882,6 +1883,7 @@ footer:not(:has(.footer-inner)) a {
 .program-card--mae > *:first-child { padding-top: 28px; }
 .program-card--mae > *:last-child  { padding-bottom: 28px; }
 .program-card--mae .prog-icon      { padding-top: 28px; padding-bottom: 0; }
+.program-card--mae > .card-img-wrap { padding: 0 !important; }
 
 .program-card--mae:hover {
     transform: translateY(-8px);
@@ -2026,6 +2028,54 @@ footer:not(:has(.footer-inner)) a {
     .doc-featured-left { border-right: none; border-bottom: 1px solid var(--glass-border); padding: 36px 28px; }
     .doc-featured-right { padding: 36px 28px; }
     .cat-section-title { font-size: 2rem; }
+}
+
+/* ─── CARD IMAGE ─────────────────────────────────────────────── */
+.card-img-wrap {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    /* Romper el padding heredado para tocar los bordes de la tarjeta */
+    margin-left: -36px;
+    margin-right: -36px;
+    width: calc(100% + 72px);
+    border-radius: 0;
+    flex-shrink: 0;
+}
+
+.program-card--mae .card-img-wrap {
+    margin-left: -28px;
+    margin-right: -28px;
+    width: calc(100% + 56px);
+}
+
+/* La tarjeta tiene overflow:hidden + ::before (barra de color top:0)
+   La imagen va debajo de la barra, pegada arriba */
+.program-card--lic .card-img-wrap,
+.program-card--mae .card-img-wrap {
+    margin-top: -3px; /* flush bajo la barra de color */
+}
+
+.card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.6s var(--ease-out);
+    display: block;
+}
+
+.program-card--lic:hover .card-img-wrap img,
+.program-card--mae:hover .card-img-wrap img {
+    transform: scale(1.06);
+}
+
+/* Doc: imagen en panel izquierdo, bordes redondeados */
+.card-img-wrap--doc {
+    height: 220px;
+    border-radius: var(--inner-radius);
+    margin: 0 0 28px 0;
+    width: 100%;
 }
 
 /* ─── PROGRAM CARD NUMBER ────────────────────────────────────── */
