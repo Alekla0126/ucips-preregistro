@@ -19,3 +19,8 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# Sensibles
+pass.txt
+*.key
+*.pem
