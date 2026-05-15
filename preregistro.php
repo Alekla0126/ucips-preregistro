@@ -385,9 +385,14 @@ $err = $_GET['err'] ?? '';
 </div><!-- /container -->
 
 <footer>
-    <?= SITE_COPYRIGHT ?> · Universidad de las Ciencias Policiales y de la Seguridad del Estado de Puebla<br>
-    <a href="mailto:<?= SITE_EMAIL ?>"><?= SITE_EMAIL ?></a>
+    <div class="container">
+        <div class="footer-bottom">
+            <p><?= SITE_COPYRIGHT ?> · Universidad de las Ciencias Policiales y de la Seguridad del Estado de Puebla</p>
+            <p><a href="mailto:<?= SITE_EMAIL ?>"><?= SITE_EMAIL ?></a></p>
+        </div>
+    </div>
 </footer>
 
+<script src="<?= siteUrl('assets/js/main.js') ?>"></script>
 </body>
 </html>
