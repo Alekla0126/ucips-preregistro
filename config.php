@@ -23,6 +23,7 @@ $PROGRAMS = [
     // ──────────────────────────────────────────────────────────
     'seguridadyproteccion' => [
         'id'          => 'seguridadyproteccion',
+        'categoria'   => 'licenciatura',
         'nombre'      => 'Seguridad y Protección Ciudadana',
         'tipo'        => 'Licenciatura Premium',
         'icono'       => '🛡️',
@@ -55,6 +56,7 @@ $PROGRAMS = [
     // ──────────────────────────────────────────────────────────
     'derecho' => [
         'id'          => 'derecho',
+        'categoria'   => 'licenciatura',
         'nombre'      => 'Derecho y Seguridad Pública',
         'tipo'        => 'Licenciatura',
         'icono'       => '⚖️',
@@ -88,6 +90,7 @@ $PROGRAMS = [
     // ──────────────────────────────────────────────────────────
     'ciber' => [
         'id'          => 'ciber',
+        'categoria'   => 'maestria',
         'nombre'      => 'Ciberseguridad y Procesos Estratégicos de Investigación',
         'tipo'        => 'Maestría Premium',
         'icono'       => '🔐',
@@ -117,6 +120,7 @@ $PROGRAMS = [
     // ──────────────────────────────────────────────────────────
     'doctorado' => [
         'id'          => 'doctorado',
+        'categoria'   => 'doctorado',
         'nombre'      => 'Doctorado en Ciencias Policiales y Seguridad Pública',
         'tipo'        => 'Doctorado',
         'icono'       => '🎓',
@@ -148,6 +152,7 @@ $PROGRAMS = [
     // ──────────────────────────────────────────────────────────
     'gerencia' => [
         'id'          => 'gerencia',
+        'categoria'   => 'maestria',
         'nombre'      => 'Gerencia y Administración Policial',
         'tipo'        => 'Maestría',
         'icono'       => '📋',
@@ -179,6 +184,7 @@ $PROGRAMS = [
     // ──────────────────────────────────────────────────────────
     'juicios' => [
         'id'          => 'juicios',
+        'categoria'   => 'maestria',
         'nombre'      => 'Juicios Orales en Materia Penal',
         'tipo'        => 'Maestría',
         'icono'       => '⚖️',
@@ -208,6 +214,7 @@ $PROGRAMS = [
     // ──────────────────────────────────────────────────────────
     'metodologia' => [
         'id'          => 'metodologia',
+        'categoria'   => 'maestria',
         'nombre'      => 'Metodología de la Investigación Criminalística',
         'tipo'        => 'Maestría',
         'icono'       => '🔬',
@@ -236,6 +243,7 @@ $PROGRAMS = [
     // ──────────────────────────────────────────────────────────
     'mseguridad' => [
         'id'          => 'mseguridad',
+        'categoria'   => 'maestria',
         'nombre'      => 'Maestría en Seguridad Pública',
         'tipo'        => 'Maestría',
         'icono'       => '🏛️',

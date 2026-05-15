@@ -226,7 +226,35 @@
 
 
   /* ─────────────────────────────────────────────────────────────
-     5. SMOOTH ANCHOR SCROLL
+     5. CATEGORY NAV ACTIVE STATE
+     Highlights the correct .cat-tab based on which .cat-section
+     is currently visible in the viewport.
+  ───────────────────────────────────────────────────────────── */
+  (function initCatNav() {
+    var tabs     = document.querySelectorAll('.cat-tab[data-target]');
+    var sections = document.querySelectorAll('.cat-section[id]');
+    if (!tabs.length || !sections.length) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    function setActive(id) {
+      tabs.forEach(function (tab) {
+        var isActive = tab.getAttribute('data-target') === id;
+        tab.classList.toggle('active', isActive);
+      });
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+    sections.forEach(function (s) { observer.observe(s); });
+  })();
+
+
+  /* ─────────────────────────────────────────────────────────────
+     7. SMOOTH ANCHOR SCROLL
      Handles nav links that point to #id anchors on the same page.
      Accounts for sticky nav height offset.
   ───────────────────────────────────────────────────────────── */
